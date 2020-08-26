@@ -12,4 +12,8 @@ public interface IViewManager {
     void updateRequestString(String str);
 
     void updateResponseString(String str);
+
+    void lockDigits();
+
+    void unlockDigits();
 }

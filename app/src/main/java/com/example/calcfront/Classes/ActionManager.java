@@ -35,12 +35,12 @@ public class ActionManager implements IActionManager{
         requestBuilder.setLength(0);
         viewManager.updateRequestString("");
         viewManager.updateResponseString("");
+        viewManager.unlockDigits();
     }
 
     public void actionSendRequest(){
         param2 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
         RequestSender requestSender = new RequestSender(param1, param2, act, this);
-        Log.d("req", "send");
         requestSender.execute();
     }
 
@@ -52,9 +52,10 @@ public class ActionManager implements IActionManager{
 
     @Override
     public void showResult(String result) {
-
         viewManager.updateResponseString(result);
         viewManager.unlockActions();
         viewManager.lockEqual();
+        viewManager.lockDigits();
+        viewManager.lockActions();
     }
 }

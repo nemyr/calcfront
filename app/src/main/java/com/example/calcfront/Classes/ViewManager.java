@@ -10,6 +10,8 @@ import com.example.calcfront.Classes.Listeners.DigitsClickListener;
 import com.example.calcfront.R;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewManager implements IViewManager {
 
@@ -27,6 +29,7 @@ public class ViewManager implements IViewManager {
     private Button btnEqual;
     private Button btnAdd;
     private Button btnSub;
+    List<Button> digits = new ArrayList<>(10);
 
     public ViewManager(Activity context, IActionManager actionManager) {
         this.activity = context;
@@ -36,7 +39,9 @@ public class ViewManager implements IViewManager {
         actionClickListener = new ActionClickListener(actionManager);
 
         for (int i = 0; i <= 9; i++) {
-            this.activity.findViewById(getResId("btn" + i, R.id.class)).setOnClickListener(digitsClickListener);
+            Button btn = this.activity.findViewById(getResId("btn" + i, R.id.class));
+            btn.setOnClickListener(digitsClickListener);
+            digits.add(btn);
         }
 
         btnClear = this.activity.findViewById(R.id.btnClear);
@@ -92,4 +97,21 @@ public class ViewManager implements IViewManager {
     public void updateResponseString(String str) {
         tvResponse.setText(str);
     }
+
+    private void toggleDigits(boolean isEnabled){
+        for (Button btn : digits) {
+            btn.setEnabled(isEnabled);
+        }
+    }
+
+    @Override
+    public void lockDigits() {
+        toggleDigits(false);
+    }
+
+    @Override
+    public void unlockDigits() {
+        toggleDigits(true);
+    }
+
 }
