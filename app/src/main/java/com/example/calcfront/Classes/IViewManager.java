@@ -16,4 +16,6 @@ public interface IViewManager {
     void lockDigits();
 
     void unlockDigits();
+
+    void showError(String text);
 }

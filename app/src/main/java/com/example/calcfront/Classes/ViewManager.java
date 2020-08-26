@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.calcfront.Classes.Listeners.ActionClickListener;
 import com.example.calcfront.Classes.Listeners.DigitsClickListener;
@@ -98,7 +99,7 @@ public class ViewManager implements IViewManager {
         tvResponse.setText(str);
     }
 
-    private void toggleDigits(boolean isEnabled){
+    private void toggleDigits(boolean isEnabled) {
         for (Button btn : digits) {
             btn.setEnabled(isEnabled);
         }
@@ -114,4 +115,7 @@ public class ViewManager implements IViewManager {
         toggleDigits(true);
     }
 
+    public void showError(String text) {
+        Toast.makeText(activity, text, Toast.LENGTH_LONG).show();
+    }
 }

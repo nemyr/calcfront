@@ -10,4 +10,6 @@ public interface IActionManager {
     void actionAppendDigit(String digit);
 
     void showResult(String result);
+
+    void actionCancel();
 }

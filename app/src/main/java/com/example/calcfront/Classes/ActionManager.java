@@ -1,9 +1,8 @@
 package com.example.calcfront.Classes;
 
 import android.app.Activity;
-import android.util.Log;
 
-public class ActionManager implements IActionManager{
+public class ActionManager implements IActionManager {
 
     private String param1;
     private String param2;
@@ -14,11 +13,11 @@ public class ActionManager implements IActionManager{
 
     IViewManager viewManager;
 
-    public ActionManager(Activity activity){
+    public ActionManager(Activity activity) {
         this.viewManager = new ViewManager(activity, this);
     }
 
-    public void actionSetAction(String symbol, String act){
+    public void actionSetAction(String symbol, String act) {
         this.act = act;
         param1 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
         digitBuilder.setLength(0);
@@ -28,7 +27,7 @@ public class ActionManager implements IActionManager{
         viewManager.unlockEqual();
     }
 
-    public void actionClear(){
+    public void actionClear() {
         viewManager.unlockActions();
         viewManager.lockEqual();
         digitBuilder.setLength(0);
@@ -38,13 +37,13 @@ public class ActionManager implements IActionManager{
         viewManager.unlockDigits();
     }
 
-    public void actionSendRequest(){
+    public void actionSendRequest() {
         param2 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
         RequestSender requestSender = new RequestSender(param1, param2, act, this);
         requestSender.execute();
     }
 
-    public void actionAppendDigit(String digit){
+    public void actionAppendDigit(String digit) {
         digitBuilder.append(digit);
         requestBuilder.append(digit);
         viewManager.updateRequestString(requestBuilder.toString());
@@ -57,5 +56,9 @@ public class ActionManager implements IActionManager{
         viewManager.lockEqual();
         viewManager.lockDigits();
         viewManager.lockActions();
+    }
+
+    public void actionCancel() {
+        viewManager.showError("Что-то пошло не так");
     }
 }
