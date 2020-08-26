@@ -1,7 +1,7 @@
 package com.example.calcfront.Classes;
 
 public interface IActionManager {
-    void actionSetAction(String act);
+    void actionSetAction(String symbol, String act);
 
     void actionClear();
 

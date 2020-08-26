@@ -20,10 +20,8 @@ public class ActionClickListener extends BaseListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAdd:
-                actionManager.actionSetAction(ActionManager.actAdd);
-                break;
             case R.id.btnSub:
-                actionManager.actionSetAction(ActionManager.actSub);
+                actionManager.actionSetAction(((Button)view).getText().toString(), view.getTag().toString());
                 break;
             case R.id.btnClear:
                 actionManager.actionClear();

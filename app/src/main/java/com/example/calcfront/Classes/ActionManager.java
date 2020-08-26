@@ -4,9 +4,6 @@ import android.app.Activity;
 
 public class ActionManager implements IActionManager{
 
-    public static final String actAdd = "add";
-    public static final String actSub = "sub";
-
     private String param1;
     private String param2;
     private String act;
@@ -20,11 +17,11 @@ public class ActionManager implements IActionManager{
         this.viewManager = new ViewManager(activity, this);
     }
 
-    public void actionSetAction(String act){
+    public void actionSetAction(String symbol, String act){
         this.act = act;
         param1 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
         digitBuilder.setLength(0);
-        requestBuilder.append(act.equals(actAdd) ? " + " : " - ");
+        requestBuilder.append(symbol);
         viewManager.updateRequestString(requestBuilder.toString());
         viewManager.lockActions();
         viewManager.unlockEqual();
