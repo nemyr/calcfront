@@ -4,10 +4,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class ActionClickListener implements View.OnClickListener {
+import com.example.calcfront.Classes.ActionManager;
+import com.example.calcfront.R;
+
+
+import com.example.calcfront.Classes.IActionManager;
+
+public class ActionClickListener extends BaseListener {
+
+    public ActionClickListener(IActionManager actionManager) {
+        super(actionManager);
+    }
+
     @Override
     public void onClick(View view) {
-
-        Toast.makeText(view.getContext(),((Button) view).getText(), Toast.LENGTH_SHORT).show();
+        switch (view.getId()){
+            case R.id.btnAdd:
+                actionManager.actionSetAction(ActionManager.actAdd);
+                break;
+            case R.id.btnSub:
+                actionManager.actionSetAction(ActionManager.actSub);
+                break;
+            case R.id.btnClear:
+                actionManager.actionClear();
+                break;
+            case R.id.btnEqual:
+                actionManager.actionSendRequest();
+                break;
+        }
     }
 }
