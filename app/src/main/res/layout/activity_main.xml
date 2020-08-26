@@ -7,24 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Hello World!"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.017" />
-
-    <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvRequest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,15 +20,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvResponse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Hello World!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRequest"
+        app:layout_constraintVertical_bias="0.017" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/tvResponse">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="1"
                 android:text="1"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -119,6 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="2"
                 android:text="2"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -128,6 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="3"
                 android:text="3"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -144,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="4"
                 android:text="4"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -153,6 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="5"
                 android:text="5"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -162,6 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="6"
                 android:text="6"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -178,6 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="7"
                 android:text="7"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -187,6 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="8"
                 android:text="8"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -196,6 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="9"
                 android:text="9"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
@@ -212,6 +221,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:tag="0"
                 android:text="0"
                 tools:layout_editor_absoluteX="-41dp"
                 tools:layout_editor_absoluteY="430dp" />
