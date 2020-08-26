@@ -1,6 +1,7 @@
 package com.example.calcfront.Classes;
 
 import android.app.Activity;
+import android.util.Log;
 
 public class ActionManager implements IActionManager{
 
@@ -38,13 +39,22 @@ public class ActionManager implements IActionManager{
 
     public void actionSendRequest(){
         param2 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
-
-        viewManager.updateResponseString(param1 + act + param2);
+        RequestSender requestSender = new RequestSender(param1, param2, act, this);
+        Log.d("req", "send");
+        requestSender.execute();
     }
 
     public void actionAppendDigit(String digit){
         digitBuilder.append(digit);
         requestBuilder.append(digit);
         viewManager.updateRequestString(requestBuilder.toString());
+    }
+
+    @Override
+    public void showResult(String result) {
+
+        viewManager.updateResponseString(result);
+        viewManager.unlockActions();
+        viewManager.lockEqual();
     }
 }

@@ -8,4 +8,6 @@ public interface IActionManager {
     void actionSendRequest();
 
     void actionAppendDigit(String digit);
+
+    void showResult(String result);
 }
