@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class RequestSender extends AsyncTask<String, String, String> {
 
-    private static final String baseURL = "http://192.168.10.16/api/calc/count";
+    private static final String baseURL = "http://192.168.10.16/api/calc";
     private static final int timeout = 2000;
 
     private String url;
@@ -19,7 +19,7 @@ public class RequestSender extends AsyncTask<String, String, String> {
     private StringBuilder builder = new StringBuilder();
 
     public RequestSender(String param1, String param2, String act, ActionManager actionManager) {
-        this.url = String.format("%s/%s/%s/%s", baseURL, param1, param2, act);
+        this.url = String.format("%s/%s/%s/%s", baseURL, act, param1, param2);
         this.actionManager = actionManager;
     }
 
