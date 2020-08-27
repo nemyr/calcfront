@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.calcfront.Classes.ActionManager;
-import com.example.calcfront.Classes.ViewManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,9 +16,5 @@ public class MainActivity extends AppCompatActivity {
         new ActionManager(this);
 
     }
-
-
-
-
 
 }
