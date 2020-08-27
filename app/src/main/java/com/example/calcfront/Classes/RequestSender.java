@@ -1,7 +1,6 @@
 package com.example.calcfront.Classes;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -13,18 +12,13 @@ import java.net.URL;
 public class RequestSender extends AsyncTask<String, String, String> {
 
     private static final String baseURL = "http://192.168.10.16/api/calc/count";
+    private static final int timeout = 2000;
 
-    private String param1;
-    private String param2;
-    private String act;
     private String url;
     private IActionManager actionManager;
     private StringBuilder builder = new StringBuilder();
 
     public RequestSender(String param1, String param2, String act, ActionManager actionManager) {
-        this.param1 = param1;
-        this.param2 = param2;
-        this.act = act;
         this.url = String.format("%s/%s/%s/%s", baseURL, param1, param2, act);
         this.actionManager = actionManager;
     }
@@ -35,11 +29,12 @@ public class RequestSender extends AsyncTask<String, String, String> {
         try {
             URL link = new URL(url);
             connection = (HttpURLConnection) link.openConnection();
-            connection.setConnectTimeout(2000);
+            connection.setConnectTimeout(timeout);
 
             InputStream inputStream = new BufferedInputStream(connection.getInputStream());
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             connection.connect();
+
             String t;
             builder.setLength(0);
             while ((t = reader.readLine()) != null)

@@ -17,9 +17,17 @@ public class ActionManager implements IActionManager {
         this.viewManager = new ViewManager(activity, this);
     }
 
+    /**
+     * Java не умеет в расширение классов, а от StringBuilder наследоваться нельзя
+     * @return результат с учетом значение по-умолчанию
+     */
+    private String getDigitFromBuilder(){
+        return digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
+    }
+
     public void actionSetAction(String symbol, String act) {
         this.act = act;
-        param1 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
+        param1 = getDigitFromBuilder();
         digitBuilder.setLength(0);
         requestBuilder.append(symbol);
         viewManager.updateRequestString(requestBuilder.toString());
@@ -38,7 +46,7 @@ public class ActionManager implements IActionManager {
     }
 
     public void actionSendRequest() {
-        param2 = digitBuilder.length() == 0 ? "0" : digitBuilder.toString();
+        param2 = getDigitFromBuilder();
         RequestSender requestSender = new RequestSender(param1, param2, act, this);
         requestSender.execute();
     }
